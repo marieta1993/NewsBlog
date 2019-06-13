@@ -5,7 +5,7 @@ import './NewPost.css';
 export default  class NewPost extends Component {
     render() {
         return (
-            <div>
+            <>
                 <div className="container">
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
@@ -44,7 +44,7 @@ export default  class NewPost extends Component {
                     </div>
                 </div>
 
-            </div>
+            </>
         )
     }
 };

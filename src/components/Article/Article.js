@@ -8,6 +8,7 @@ export default class Article extends Component {
         let newsList = this.props.newsList.map((item) =>
                 <div className="card" key={item.id}>
                     <div className="card-body" >
+
                         <span className="badge badge-pill badge-danger">Hot</span>
 
                         <span className="badge badge-pill badge-warning">New</span>
