@@ -18,7 +18,6 @@ export default class App extends Component{
     ];
     state = {
          newsList:this.newsList
-
      };
     filterAction =(status,id) =>{
         this.setState(({newsList}) => {
