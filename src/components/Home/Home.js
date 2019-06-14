@@ -10,7 +10,7 @@ render() {
     return (
         <>
             <h1 className='text-center'>SEARCH NEWS</h1>
-            <Filter filterItemData={ this.props.filterItemData} />
+            <Filter filterItemData={ this.props.filterItemData}  searchItemData={this.props.searchItemData}/>
             <Article newsList={this.props.data} />
         </>
 

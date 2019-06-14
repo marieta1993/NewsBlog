@@ -6,7 +6,6 @@ import NewPost from '../NewPost';
 
 import './App.css'
 
-
 export default class App extends Component{
      newsList = [
         {id: "1", content: "Sport News", divColor: "#aff", status: 'hot', title: "Football"},
@@ -20,8 +19,9 @@ export default class App extends Component{
          newsList:this.newsList
      };
     filterAction =(status,id) =>{
+        let oldData = this.newsList;
         this.setState(({newsList}) => {
-            const updatedList = newsList.filter((obj)=>{
+            const updatedList = oldData.filter((obj)=>{
                 if(status==='hot'){
                     return obj.status==='hot'
                 }else if(status==='new'){
@@ -33,22 +33,28 @@ export default class App extends Component{
             return{
                 newsList:updatedList
             }
-            }
-        )
+        })
+    };
+
+    searchAction = (event)=>{
+        let allData = this.newsList;
+            const searchedList = allData.filter((obj) => {
+                    return obj.title.toLowerCase().search(
+                        event.target.value.toLowerCase()) !== -1;
+            });
+           this.setState({newsList:searchedList})
     };
     render() {
         let {newsList} =this.state;
-
         return (
-
             <>
                 <Header/>
                 <div className='container'>
-                    <Home data={newsList} filterItemData={(id,status) => this.filterAction(id, status)} />
+                    <Home data={newsList} filterItemData={(id,status) => this.filterAction(id, status)}
+                          searchItemData ={this.searchAction}/>
                     <NewPost/>
                 </div>
             </>
         )
     }
-
 };

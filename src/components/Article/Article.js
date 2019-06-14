@@ -3,16 +3,24 @@ import React, {Component} from 'react';
 import './Article.css';
 
 export default class Article extends Component {
+     statusDiv =(item)=>{
+         if (item.status === 'hot'){
+             return(
+                 <span className="badge badge-pill badge-danger">Hot</span>
+             )
+         }else{
+             return(
+                <span className="badge badge-pill badge-warning">New</span>
+             )
+         }
+    };
 
     render() {
         let newsList = this.props.newsList.map((item) =>
                 <div className="card" key={item.id}>
+
                     <div className="card-body" >
-
-                        <span className="badge badge-pill badge-danger">Hot</span>
-
-                        <span className="badge badge-pill badge-warning">New</span>
-
+                        {this.statusDiv(item)}
                         <div className="card-title news_header">
                             <h1>  {item.title}</h1>
                         </div>
